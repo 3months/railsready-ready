@@ -95,7 +95,24 @@ echo -e "\n=> Ensuring there is a .bashrc and .bash_profile..."
 rm -f $HOME/.bashrc && rm -f $HOME/.bash_profile
 touch $HOME/.bashrc && touch $HOME/.bash_profile
 echo 'PS1="[\u@\h:\w] $ "' >> $HOME/.bashrc
+echo -e 'if [ -f ~/.bashrc]; then
+. ~/.bashrc
+fi' > $HOME/.bash_profile
+
 echo "==> done..."
+
+# setup .gemrc
+echo -e '---
+:verbose: true 
+:bulk_threshold: 1000 
+:sources:
+- http://rubygems.org
+- http://gems.github.com
+gem: --no-ri --no-rdoc
+:benchmark: false
+:update_sources: true 
+:backtrace: false' > ~/.gemrc
+
 
 echo -e "\n=> Downloading and running recipe for $distro...\n"
 #Download the distro specific recipe and run it, passing along all the variables as args
@@ -123,10 +140,6 @@ elif [ $whichRuby -eq 2 ] ; then
   chmod +x rvm-install-head
   "$PWD/rvm-install-head" >> $log_file 2>&1
   [[ -f rvm-install-head ]] && rm -f rvm-install-head
-  echo -e "\n=> Setting up RVM to load with new shells..."
-  #if RVM is installed as user root it goes to /usr/local/rvm/ not ~/.rvm
-  echo 'source $HOME/.bash_profile' >> $HOME/.bashrc
-  echo "==> done..."
   echo "=> Loading RVM..."
   source ~/.rvm/scripts/rvm
   source ~/.bashrc
@@ -172,5 +185,6 @@ echo    "### Installation is complete! ###"
 echo -e "#################################\n"
 
 echo -e "\n !!! logout and back in to access Ruby or run source ~/.bash_profile !!!\n"
+echo -e "\n !!! Follow http://articles.slicehost.com/2010/10/18/ubuntu-maverick-setup-part-1#newuser for security configuration !!!\n"
 
 echo -e "\n Thanks!\n-Josh\n"

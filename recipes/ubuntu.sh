@@ -47,7 +47,7 @@ sudo $pm -y install \
     libreadline6-dev zlib1g-dev libcurl4-openssl-dev >> $log_file 2>&1
 echo "==> done..."
 
-echo -e "\n=> Installing libs needed for sqlite and mysql..."
+echo -e "\n=> Installing libs needed for sqlite and postgresql..."
 sudo $pm -y install libsqlite3-0 sqlite3 libsqlite3-dev postgresql libpq-dev >> $log_file 2>&1
 echo "==> done..."
 
@@ -59,4 +59,9 @@ echo "==> done..."
 # Install git-core
 echo -e "\n=> Installing git..."
 sudo $pm -y install git-core >> $log_file 2>&1
+
+# Install other useful libraries
+echo -e "\n=> Installing other useful bits..."
+sudo $pm -y install htop >> $log_file 2>&1
+
 echo "==> done..."
