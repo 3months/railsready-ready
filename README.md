@@ -15,8 +15,9 @@
   * An updated system
   * Ruby 1.9.2 latest patch level (installed to /usr/local/bin/ruby) or RVM running 1.9.2 latest patch level
   * Imagemagick
-  * libs needed to run Rails (sqlite, mysql, etc)
-  * Bundler, Passenger, and Rails gems
+  * Htop
+  * libs needed to run Rails (sqlite, postgresql, etc)
+  * Bundler and Passenger gems
   * Git
 
 Just install either NGINX or Apache, run passenger-install-nginx-module or passenger-install-apache-module, upload your app, point your vhost config to your apps public dir and go!
