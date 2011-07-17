@@ -70,6 +70,10 @@ echo -e "\n=> Creating $admin_user_name user..."
 useradd $admin_user_name -G admin --create-home
 echo "==> done."
 
+echo -e "\n=> Installing OpenSSH server, if it isn't already installed..."
+apt-get install openssh-server
+echo "==> done."
+
 if [[ -d "$user_home/.ssh" ]] ; then
     echo -e "\n=> Don't need to create user's .ssh directory, it already exists"
 else
