@@ -22,8 +22,8 @@ Both Rails Ready and Rails Ready Ready WILL update your system. Before you begin
 Use
 ---
 
-* **RailsReady Ready:** `wget --no-check-certificate https://github.com/3months/railsreadyready.sh && bash railsreadyready.sh`
-* **RailsReady:** `wget --no-check-certificate https://github.com/3months/railsready.sh && bash railsready.sh`
+* **RailsReady Ready:** `wget --no-check-certificate https://raw.github.com/3months/railsready-ready/master/railsready-ready.sh && bash railsreadyready.sh`
+* **RailsReady:** `wget --no-check-certificate https://raw.github.com/3months/railsready-ready/master/railsready.sh&& bash railsready.sh`
 
 
 Once you've run both scripts:
